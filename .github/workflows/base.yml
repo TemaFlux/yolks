@@ -1,13 +1,5 @@
 name: build oses
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * 1"
-  push:
-    branches:
-      - master
-    paths:
-      - oses/**
+on: [push]
 jobs:
   push:
     name: "yolks:${{ matrix.oses }}"
