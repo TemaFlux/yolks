@@ -1,5 +1,13 @@
 name: build oses
-on: [push]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
+  push:
+    branches:
+      - master
+    paths:
+      - oses/**
 jobs:
   push:
     name: "yolks:${{ matrix.oses }}"
@@ -19,8 +27,8 @@ jobs:
       - uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.Yolks }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
           context: ./oses/${{ matrix.oses }}
