@@ -7,7 +7,11 @@ ENV   DEBIAN_FRONTEND noninteractive
 ## add container user
 RUN   useradd -m -d /home/container -s /bin/bash container
 
-RUN   wget https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz && tar xvf boost_1_70_0.tar.gz cd boost_1_70_0/ && chmod +x bootstrap.sh && ./bootstrap.sh --prefix=/usr/local/
+RUN   wget https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz
+RUN   tar xvf boost_1_70_0.tar.gz cd boost_1_70_0/
+RUN   chmod +x bootstrap.sh
+RUN   ls
+RUN   ./bootstrap.sh --prefix=/usr/local/
 
 ## update base packages
 RUN   apt update \
