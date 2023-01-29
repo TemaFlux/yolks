@@ -17,7 +17,7 @@ RUN   apt install -y build-essential gcc g++ libgcc1 libc++-dev gdb libc6 libasa
 	libfluidsynth-dev libmariadb-dev libicu-dev libbz2-dev libssl3 libduktape207 libjsoncpp-dev libleveldb1d libncurses5 libncursesw5 libpython2.7 libatlas3-base psmisc
 
 RUN   wget https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz
-RUN   tar xf boost_1_70_0.tar.gz && cd boost_1_70_0/ && chmod +x bootstrap.sh && ./bootstrap.sh --prefix=/usr/local/
+RUN   tar xf boost_1_70_0.tar.gz && rm boost_1_70_0.tar.gz && cd boost_1_70_0/ && chmod +x bootstrap.sh && ./bootstrap.sh --prefix=/usr/local/ && cd .. && rm boost_1_70_0 -R
 
 ## configure locale
 RUN   update-locale lang=en_US.UTF-8 \
