@@ -16,8 +16,8 @@ RUN   apt install -y build-essential gcc g++ libgcc1 libc++-dev gdb libc6 libasa
         libcurl3-gnutls libboost-all-dev liblua5.1-0 libluajit-5.1-2 libsqlite3-0 bzip2 zlib1g libevent-dev libmariadb-dev-compat libmariadb-dev libssl-dev \
 	libfluidsynth-dev libmariadb-dev libicu-dev libbz2-dev libssl3 libduktape207 libjsoncpp-dev libleveldb1d libncurses5 libncursesw5 libpython2.7 libatlas3-base psmisc
 
-RUN   wget https://raw.githubusercontent.com/TemaFlux/yolks/main/libs/boost_1_70_0-min.tar.gz
-RUN   tar xf boost_1_70_0-min.tar.gz && rm boost_1_70_0-min.tar.gz && cd boost_1_70_0/ && chmod +x bootstrap.sh && ./bootstrap.sh --prefix=/usr/local/ && ./b2 install && cd .. && rm boost_1_70_0 -R
+RUN   wget https://raw.githubusercontent.com/TemaFlux/yolks/main/libs/boost_1_70_0-min.zip
+RUN   unzip boost_1_70_0-min.zip && rm boost_1_70_0-min.zip && cd boost_1_70_0/ && chmod +x bootstrap.sh && ./bootstrap.sh --prefix=/usr/local/ && ./b2 install && cd .. && rm boost_1_70_0 -R
 
 ## configure locale
 RUN   update-locale lang=en_US.UTF-8 \
