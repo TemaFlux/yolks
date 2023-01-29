@@ -18,9 +18,7 @@ RUN   apt install -y gcc g++ libgcc1 libc++-dev gdb libc6 libasan5 git wget curl
 	libfluidsynth-dev libmariadb-dev libicu-dev libssl3 libduktape207 libjsoncpp-dev libleveldb1d libncurses5 libncursesw5 libpython2.7 libatlas3-base psmisc
 
 RUN   wget https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz
-RUN   tar xvf boost_1_70_0.tar.gz cd boost_1_70_0/
-RUN   chmod +x bootstrap.sh
-RUN   ls
+RUN   tar xvf boost_1_70_0.tar.gz && cd boost_1_70_0/ && chmod +x bootstrap.sh
 RUN   ./bootstrap.sh --prefix=/usr/local/
 
 ## configure locale
