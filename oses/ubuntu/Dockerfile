@@ -17,7 +17,7 @@ RUN   apt install -y build-essential gcc g++ libgcc1 libc++-dev gdb libc6 libasa
 	libfluidsynth-dev libmariadb-dev libicu-dev libbz2-dev libssl3 libduktape207 libjsoncpp-dev libleveldb1d libncurses5 libncursesw5 libpython2.7 libatlas3-base psmisc
 
 RUN   wget https://raw.githubusercontent.com/TemaFlux/yolks/main/libs/libboost-1.70.tar.gz
-RUN   tar xf libboost-1.70.tar.gz -C /usr/local/lib && rm libboost-1.70.tar.gz && chown root:root libboost_* && chmod 755 libboost_*
+RUN   tar xf libboost-1.70.tar.gz -C /usr/local/lib && rm libboost-1.70.tar.gz && chown root:root /usr/local/lib/libboost_* && chmod 755 /usr/local/lib/libboost_*
 
 ## configure locale
 RUN   update-locale lang=en_US.UTF-8 \
